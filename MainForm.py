@@ -30,11 +30,15 @@ def MainForma(Tk):
 r_var = IntVar()
 r_var.set(0)
 
+
 def Vibor():
     if r_var.get() == 0:
-        Raschet.Annuit(summa, srok, stavka, Procent, EveryMonth, Dolg)
+        a1 = Raschet.Annuit()
+        a1.Raschet(summa, srok, stavka, Procent, EveryMonth, Dolg)
     elif r_var.get() == 1:
-        Raschet.Differenc(summa, srok, stavka, Procent, EveryMonth, Dolg)
+        a2 = Raschet.Difference()
+        a2.Raschet(summa, srok, stavka, Procent, EveryMonth, Dolg)
+
 
 class Sozdanie():
     summaLabel = ttk.Label(text="Сумма кредита:")
@@ -43,7 +47,7 @@ class Sozdanie():
     typeLabel = ttk.Label(text="Тип ежемесячных платежей:")
     EveryMonthLabel = ttk.Label(text="Ежемесячный платеж")
     ProcentLabel = ttk.Label(text="Начисленные проценты")
-    DolgLabel=ttk.Label(text="Сумма долга")
+    DolgLabel = ttk.Label(text="Сумма долга")
 
     def sozdanieLabel(Tk):
         Sozdanie.summaLabel.place(x=25, y=25)  # размещение метки в окне (Сумма кредита)
@@ -51,8 +55,8 @@ class Sozdanie():
         Sozdanie.stavkaLabel.place(x=25, y=95)  # размещение метки в окне (Ключевая ставка)
         Sozdanie.typeLabel.place(x=25, y=150)  # размещение метки в окне (Тип ежемесячных платежей)
         Sozdanie.EveryMonthLabel.place(x=25, y=260)  # размещение метки в окне (Ежемесячгый платеж)
-        Sozdanie.ProcentLabel.place(x=25, y=295) # размещение метки в окне (Начисленные проценты)
-        Sozdanie.DolgLabel.place(x=25, y = 330) # размещение метки в окне (Сумма долга)
+        Sozdanie.ProcentLabel.place(x=25, y=295)  # размещение метки в окне (Начисленные проценты)
+        Sozdanie.DolgLabel.place(x=25, y=330)  # размещение метки в окне (Сумма долга)
 
     entr1 = ttk.Entry(width=10, textvariable=summa)
     entr2 = ttk.Entry(width=10, textvariable=srok)
@@ -67,10 +71,10 @@ class Sozdanie():
         Sozdanie.entr3.place(x=185, y=95)
         Sozdanie.entr4.place(x=200, y=260)
         Sozdanie.entr5.place(x=200, y=295)
-        Sozdanie.entr6.place(x=200, y = 330)
+        Sozdanie.entr6.place(x=200, y=330)
 
-    annuit = ttk.Radiobutton(text="Аннуитетные платежи", variable = r_var, value=0)
-    differenc = ttk.Radiobutton(text="Дифференцированные платежи", variable = r_var, value=1)
+    annuit = ttk.Radiobutton(text="Аннуитетные платежи", variable=r_var, value=0)
+    differenc = ttk.Radiobutton(text="Дифференцированные платежи", variable=r_var, value=1)
 
     def SozdanieRadioButton(Tk, r_var):
         Sozdanie.annuit.place(x=25, y=200)
@@ -78,7 +82,7 @@ class Sozdanie():
 
 
 btn = ttk.Button(text="Рассчитать", command=Vibor)
-btn.place(x=50, y = 400)
+btn.place(x=50, y=400)
 MainForma(window)
 Sozdanie.sozdanieLabel(window)
 Sozdanie.sozdanieEntry(window)

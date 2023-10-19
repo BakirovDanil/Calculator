@@ -3,10 +3,12 @@ from abc import ABC, abstractmethod
 
 class Method(ABC):
 
-    def Annuit(self):
+    def Raschet(self, summa, srok, stavka, procent, everyMonth, dolg):
         pass
 
-    def Annuit(self, summa, srok, stavka, procent, everyMonth, dolg):
+
+class Annuit(Method):
+    def Raschet(self, summa, srok, stavka, procent, everyMonth, dolg):
         srok = srok.get() * 12
         everyMonthStavka = stavka.get() / (12 * 100)
         globalStavka = (1 + everyMonthStavka) ** srok
@@ -17,7 +19,9 @@ class Method(ABC):
         everyMonth.set(everyMonth1)
         dolg.set(dolg1)
 
-    def Differenc(summa, srok, stavka, procent, everyMonth, dolg):  # данные, которые будут получены из полей ввода
+
+class Difference(Method):
+    def Raschet(self, summa, srok, stavka, procent, everyMonth, dolg):
         global procentPart, accuredInterest, ostatok, dolg1, monthlyPayment  # данные для расчетов внутри функции
         accuredInterest = 0
         srok = srok.get() * 12  # получаем содержимое поля ввода
@@ -32,6 +36,6 @@ class Method(ABC):
             accuredInterest += procentPart
         dolg1 = summa.get() + accuredInterest
         MinEveryMonth = everyMonthDolg
-        procent.set(accuredInterest)
-        everyMonth.set(MinEveryMonth)
-        dolg.set(dolg1)
+        procent.set(int(accuredInterest))
+        everyMonth.set(int(MinEveryMonth))
+        dolg.set(int(dolg1))
