@@ -1,7 +1,11 @@
-from tkinter import *
+#Данная часть кода служит для
+#создания окна и вызова методов
+#из другой части  кода для размещения объектов
+
+from tkinter import * #импорт библиотеки tkinter
 from tkinter import ttk
 
-import Raschet
+import Raschet #импорт
 import Figure
 
 

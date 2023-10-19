@@ -61,7 +61,7 @@ class RadioButton(Figure):
     def Sozdanie(self, window):
         annuit = ttk.Radiobutton(text="Аннуитетные платежи", variable=self.r_var, value=0)
         differenc = ttk.Radiobutton(text="Дифференцированные платежи", variable=self.r_var, value=1)
-        annuit.place(x=25, y=200)
-        differenc.place(x=25, y=235)
+        annuit.place(x=25, y=185)
+        differenc.place(x=25, y=220)
 
 
