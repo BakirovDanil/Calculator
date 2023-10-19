@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 
 
 class Method(ABC):
@@ -14,10 +14,10 @@ class Annuit(Method):
         globalStavka = (1 + everyMonthStavka) ** srok
         everyMonth1 = int((summa.get() * everyMonthStavka * globalStavka) / (globalStavka - 1))
         procent1 = int(everyMonth1 * srok - summa.get())
-        dolg1 = int(procent1 + summa.get())
+        dolg2 = int(procent1 + summa.get())
         procent.set(procent1)
         everyMonth.set(everyMonth1)
-        dolg.set(dolg1)
+        dolg.set(dolg2)
 
 
 class Difference(Method):
@@ -39,3 +39,5 @@ class Difference(Method):
         procent.set(int(accuredInterest))
         everyMonth.set(int(MinEveryMonth))
         dolg.set(int(dolg1))
+
+

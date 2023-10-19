@@ -1,7 +1,5 @@
-from tkinter import *
+from abc import ABC
 from tkinter import ttk
-
-from abc import ABC, abstractmethod
 
 
 class Figure(ABC):
@@ -11,7 +9,6 @@ class Figure(ABC):
 
 
 class Label(Figure):
-
 
     def Sozdanie(self, window):
         summaLabel = ttk.Label(text="Сумма кредита:")
@@ -43,9 +40,9 @@ class Entry(Figure):
         entr1 = ttk.Entry(width=10, textvariable=self.summa)
         entr2 = ttk.Entry(width=10, textvariable=self.srok)
         entr3 = ttk.Entry(width=10, textvariable=self.stavka)
-        entr4 = ttk.Entry(width=10, textvariable=self.EveryMonth)
-        entr5 = ttk.Entry(width=10, textvariable=self.Procent)
-        entr6 = ttk.Entry(width=10, textvariable=self.Dolg)
+        entr4 = ttk.Entry(width=10, textvariable=self.EveryMonth, state="readonly")
+        entr5 = ttk.Entry(width=10, textvariable=self.Procent, state="readonly")
+        entr6 = ttk.Entry(width=10, textvariable=self.Dolg, state="readonly")
         entr1.place(x=185, y=25)
         entr2.place(x=185, y=60)
         entr3.place(x=185, y=95)
@@ -63,5 +60,3 @@ class RadioButton(Figure):
         differenc = ttk.Radiobutton(text="Дифференцированные платежи", variable=self.r_var, value=1)
         annuit.place(x=25, y=185)
         differenc.place(x=25, y=220)
-
-
